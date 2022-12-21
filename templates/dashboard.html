@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
-<!DOCTYPE HTML>
-<head>
-    <body>
+{% endblock %}
 
-        <title>Hello from Flask</title>
+{% block body %}
         {% if name %}
         <h1>
             Hello {{ name }}!
@@ -21,10 +19,8 @@
             hi
 
         </p>
-    </body>
-</head>
 
-
+{% endblock %}
 
 
 

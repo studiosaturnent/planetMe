@@ -8,9 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>{% block title %}{% endblock %} planetMe</title>
-    {% block html_head %}{% endblock %}
+    <title>{% block title %}{% endblock %} planetMe </title>
 
+   
 
        <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,8 +43,7 @@
           		{% endif %}
 	    </h1>
         </div>
-    </div>
-
+    </div> 
     <!-- Optional JavaScript -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -60,29 +59,14 @@
 
 <body>
     {% block body %}
-
+<div class = "login">
     <h1>
         Please Log In
     </h1>
-    {% endblock %}
-
-    {% block content %}
-    <div class="container mt-4 ">
-        <form method="POST"> 
-            <h2 align="center">Login</h2>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Login</button>
-          </form>
-    </div>
-    {% endblock content %}    
+    <h6> Create Your Account 
+    <h6>
+</div>
+{% endblock %}
 </body>
 
 

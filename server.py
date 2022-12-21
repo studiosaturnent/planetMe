@@ -1,18 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request, session
 from flask import url_for
+from flask_sqlalchemy import SQLAlchemy
 
-
-#From flask import Flask, render_template, redirect, session
 
 app = Flask(__name__)
 
-# @app.route("/")
-# def index():
-#    return render_template("homepage.html")
 
 @app.route("/")
 def view_home():
-    return render_template("base.html", title="Home page")
+    return render_template("homepage.html", title="Home page")
+    
+@app.route('/homepage')
+def homepage():
+   return render_template("homepage.html")
 
 @app.route("/journal")
 def view_first_page():
@@ -22,16 +22,27 @@ def view_first_page():
 def view_second_page():
     return render_template("dashboard.html", title="Dashboard")
 
-@app.route('/homepage')
-def homepage():
-   return render_template("homepage.html")
 
-
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    print(request.method)
+    if request.method == 'POST':
+        if request.form.get('Encrypt') == 'Encrypt':
+                # pass
+                redirect ("Encrypted")
+        elif  request.form.get('Decrypt') == 'Decrypt':
+                # pass # do something else
+                print("Decrypted")
+        else:
+                # pass # unknown
+                return redirect("/dashboard")
+    elif request.method == 'GET':
+            # return render_template("index.html")
+            print("No Post Back Call")  
+
     return render_template('login.html')
 
-@app.route('/user/<username>')
+@app.route('/dashboard/<username>')
 def profile(username):
     return f'{username}\'s profile'
 
@@ -41,33 +52,18 @@ with app.test_request_context():
     print(url_for('login', next='/'))
     print(url_for('profile', username='John Doe'))
 
-# @app.route('/dashboard/')
-# @app.route('/hello/<name>')
-# def dashboard(name="Monie"):
-#     return render_template('dashboard.html', name=name)
-
-# @app.route('/journal')
-# def journal_home():
-#     return render_template('journal.html')    
+@app.route('/dashboard/')
+@app.route('/dashboard/<name>')
+def dashboard(name="Monie"):
+    return render_template('dashboard.html', name=name)
 
 
-# app.route('/login', methods=[“POST”,”GET”])
-# def login_user():
+if __name__ == "__main__":
+    from model import connect_to_db
 
-# 	user_email = request.form.get(“user_email”)
-# 	user = crud.get_journals(“user_email”) 
-# 	#returns a user object or none
-	
-# 	if user is None:
-# 		return redirect(“/”)
-# 	else:
-# 		session[“user_id”] = user.user_id
-# 		session[“user_name”] = user.user_name	
-# 	return render_template(“some.html”)
+    connect_to_db(app, "planetMe")
 
-# app.route(“profile”)
-# def profile
-
+    app.run(debug=True, host="0.0.0.0")
 
 
 

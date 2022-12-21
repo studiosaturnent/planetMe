@@ -1,18 +1,37 @@
-<!DOCTYPE HTML>
-<head>
-    <body>
+{% extends 'base.html' %}
 
+{% block body %}
         
         <h1>
             Sign In 
         </h1>
-        <p>
-            <p>Log In: <a href="/dashboard">LOGIN</a></p>
-            
-        </p>
-    </body>
-</head>
 
+        <div class="container mt-4 ">
+            <form method="POST"> 
+                <h2 align="center"></h2>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+        </div>
+        <p>
+            <form method="post" action="/login">
+
+                <input type="submit" value="Encrypt" name="Encrypt"/>
+                <input type="submit" value="Decrypt" name="Decrypt" />
+
+        </form>
+
+        </p>
+
+{% endblock %}
 
 
 
