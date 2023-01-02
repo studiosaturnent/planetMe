@@ -15,4 +15,4 @@ os.system("createdb planetMe")
 model.connect_to_db(server.app)
 model.db.create_all()
 
-crud.create_user("simone@gmail.com","password")
+crud.create_user("simone@gmail.com","password","simone")

@@ -1,4 +1,57 @@
+## Sprint 2: Part 1 -- Project Update
+
+# I have completed my MVP (Yes/No):
+  - No
+  
+# MVP
+- Users can login to dashboard screen
+- Users can view a list of their journal entries
+- Users can see their name displayed in dashboard 
+- Users can add new journal entries with date,time, and mood 
+
+
+# I have completed these features for my MVP:
+  - **backend**
+    - SQLAlchemy models + crud operations
+  - **frontend.**
+    - dashboard + login feature
+  - **data store**
+    - sql database for user data piping (✔️1 SQL DB)
+
+# This coming week, I plan to work on:
+  - user + journal relationship implementation
+  - completing the Journal add-view-delete features 
+ 
+# My general work plan/estimate for the rest of Sprint 2:
+  - Create user and Log tables to display
+  - DOM manipulation
+  - AJAX Request
+
+
+
+###### PROJECT REQUIREMENTS
+- Use git to track project files
+  - It should also have a .gitignore and a readme.md
+- Have a public GitHub repository
+  - Remember to pin your project repo to your GitHub profile and add the URL to your resume
+- Use virtualenv to install and keep track of dependencies
+  - Remember to add requirements.txt to your git repo
+
+###### COMPLETION CHECKLIST
+- A SQL database with at least one table ✔️
+- One SQLAlchemy class used to query the database 
+- A Flask server ✔️
+- 1-2 Jinja templates that use template inheritance ✔️
+- One CSS file ✔️
+- Bootstrap counts as one CSS file 
+- One feature that uses JavaScript to manipulate the DOM
+- This includes JavaScript frontend libraries, frameworks, and/or code that you write
+- One AJAX request
+
+---------------------------------------
+
 ## Sprint 1: Part 1 -- Project Update
+
 
 # I have completed my MVP (Yes/No):
   - Not in entirety, no.
@@ -37,12 +90,12 @@
   - Remember to add requirements.txt to your git repo
 
 ###### COMPLETION CHECKLIST
-- A SQL database with at least one table
-- One SQLAlchemy class used to query the database
-- A Flask server
-- 1-2 Jinja templates that use template inheritance
-- One CSS file
-- Bootstrap counts as one CSS file
+- A SQL database with at least one table 
+- One SQLAlchemy class used to query the database 
+- A Flask server ✔️
+- 1-2 Jinja templates that use template inheritance ✔️
+- One CSS file 
+- Bootstrap counts as one CSS file 
 - One feature that uses JavaScript to manipulate the DOM
 - This includes JavaScript frontend libraries, frameworks, and/or code that you write
 - One AJAX request

@@ -3,11 +3,12 @@
 from model import db, User, Journal, Entry, connect_to_db
 
 
-def create_user(email, password):
+def create_user(email, password, name):
     """Create and return a new user."""
 
-    user = User(email=email, password=password)
-
+    user = User(email=email, password=password, name=name)
+    db.session.add(user)
+    db.session.commit()
     return user
 
 
@@ -32,7 +33,7 @@ def get_user_by_email(email):
 def create_journal(date, time, mood , body_data ):
     """Create and return a new Journal object."""
 
-    journal = Journals(
+    journal = Journal(
         date=date,
         time=time,
         mood=mood,
@@ -45,27 +46,27 @@ def create_journal(date, time, mood , body_data ):
 def get_journal():
     """Return all journals."""
 
-    return Journals.query.all()
+    return Journal.query.all()
 
 
 def get_entry_by_id(journal_id):
     """Return a journal by primary key."""
 
-    return Journals.query.get(journal_id)
+    return Journal.query.get(journal_id)
 
 
 def create_entry(user, journal):
     """Create and return a new entry."""
 
-    entry = Entries(user=user, journal=journal)
+    entry = Entry(user=user, journal=journal)
 
     return entry
 
 
 def update_entry(entry_id, new_entry):
     """ Update a rating given rating_id and the updated score. """
-    entry = Entries.query.get(entry_id)
-    entry.score = new_entry
+    entry = Entry.query.get(entry_id)
+    entry.entry_id = new_entry
 
 if __name__ == "__main__":
     from server import app

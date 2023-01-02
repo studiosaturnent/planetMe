@@ -15,10 +15,10 @@ class User(db.Model):
     user_id = db.Column(db.Integer, nullable=False, autoincrement=True, primary_key=True)
     email = db.Column(db.String, unique=True , nullable=False)
     password = db.Column(db.String, nullable=False)
-    user_name = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, nullable=False)
 
 
-    journals = db.relationship("Journals", back_populates="user")
+   # journals = db.relationship("Journal", back_populates="user")
 
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email}>"
@@ -31,7 +31,7 @@ class Journal(db.Model):
 
     journal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
-    entry = db.relationship("Entries", back_populates="journal")
+   # entry = db.relationship("Entry", back_populates="journal")
 
     def __repr__(self):
         return f"<Journals journal_id={self.journal_id} name={self.name}>"
@@ -65,10 +65,6 @@ def connect_to_db(app, database_name="planetMe"):
     db.init_app(app)
 
 
-if __name__ == "__main__":
-    from server import app
-
-    connect_to_db(app, "users")
 
 
 

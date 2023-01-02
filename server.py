@@ -1,9 +1,12 @@
 from flask import Flask, render_template, redirect, request, session
 from flask import url_for
 from flask_sqlalchemy import SQLAlchemy
+import crud
 
 
 app = Flask(__name__)
+
+app.secret_key = 'A SECRET KEY'
 
 
 @app.route("/")
@@ -23,47 +26,41 @@ def view_second_page():
     return render_template("dashboard.html", title="Dashboard")
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    print(request.method)
-    if request.method == 'POST':
-        if request.form.get('Encrypt') == 'Encrypt':
-                # pass
-                redirect ("Encrypted")
-        elif  request.form.get('Decrypt') == 'Decrypt':
-                # pass # do something else
-                print("Decrypted")
-        else:
-                # pass # unknown
-                return redirect("/dashboard")
-    elif request.method == 'GET':
-            # return render_template("index.html")
-            print("No Post Back Call")  
+@app.route('/login', methods=['GET'])
+def login_page(): 
 
     return render_template('login.html')
 
-@app.route('/dashboard/<username>')
-def profile(username):
-    return f'{username}\'s profile'
 
-with app.test_request_context():
-    print(url_for('homepage'))
-    print(url_for('login'))
-    print(url_for('login', next='/'))
-    print(url_for('profile', username='John Doe'))
+@app.route('/login', methods=['POST'])
+def login_post():
 
-@app.route('/dashboard/')
+    email = request.form.get('email')
+    print(email)
+    password = request.form.get('password')
+    print(password)
+    user = crud.get_user_by_email(email)
+    
+    if user != None and password == user.password:
+        session["user_id"] = user.user_id
+        return redirect("/dashboard")
+    else:
+        return redirect("/login")
+
 @app.route('/dashboard/<name>')
-def dashboard(name="Monie"):
-    return render_template('dashboard.html', name=name)
+def profile(name):
+    return f'{name}\'s profile'
+
+
+
 
 
 if __name__ == "__main__":
     from model import connect_to_db
 
-    connect_to_db(app, "planetMe")
+    connect_to_db(app)
 
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True, host="0.0.0.0",port=5001)
 
 
 
