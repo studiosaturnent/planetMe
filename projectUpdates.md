@@ -54,12 +54,11 @@
 
 
 # I have completed my MVP (Yes/No):
-  - Not in entirety, no.
+  - Not complete
   
 # MVP
-- Users can view a list of their journal entries
+- Users can view a list of their journal entries and add new entries
 - Users can see their name displayed in the home/greeting page (homepage complete, need to add greeting display)
-- Users can add new journal entries with date,time, and mood 
 
 
 # I have completed these features for my MVP:
