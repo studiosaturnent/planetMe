@@ -2,20 +2,16 @@
 
 
 {% block body %}
-        {% if name %}
-        <h1>
-            Hello {{ name }}!
-        </h1>
-        {% else %}
+
+    <div>
         <h1>Hello, World!</h1>
-        {% endif %}
-        
+        <p>Hi {{ user.name }}! I think today is DDMMYYYY!</p>
+    </div>    
         <h1>
-            Sign In 
+            My Journal
         </h1>
         <p>
-            
-            hi
+            Click here for dictionary:
 
         </p>
 
@@ -35,4 +31,3 @@
 
 
 
-</html>

@@ -42,6 +42,11 @@ def create_journal(date, time, mood , body_data ):
 
     return journal
 
+def get_name(name):
+    """Find and display a user's name."""
+
+    return User.query.get(name=name)
+
 
 def get_journal():
     """Return all journals."""
@@ -55,7 +60,7 @@ def get_entry_by_id(journal_id):
     return Journal.query.get(journal_id)
 
 
-def create_entry(user, journal):
+def create_journal(user, journal):
     """Create and return a new entry."""
 
     entry = Entry(user=user, journal=journal)
@@ -63,10 +68,6 @@ def create_entry(user, journal):
     return entry
 
 
-def update_entry(entry_id, new_entry):
-    """ Update a rating given rating_id and the updated score. """
-    entry = Entry.query.get(entry_id)
-    entry.entry_id = new_entry
 
 if __name__ == "__main__":
     from server import app

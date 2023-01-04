@@ -30,11 +30,13 @@ class Journal(db.Model):
     __tablename__ = "journals"
 
     journal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
-   # entry = db.relationship("Entry", back_populates="journal")
+    date = db.Column(db.DateTime)
+    time = db.Column(db.Time)
+    mood = db.Column(db.String)
+    body_data = db.Column(db.String)
 
     def __repr__(self):
-        return f"<Journals journal_id={self.journal_id} name={self.name}>"
+        return f"<Journals journal_id={self.journal_id} date={self.date}>"
 
 
 class Entry(db.Model):

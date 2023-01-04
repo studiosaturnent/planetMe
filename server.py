@@ -17,13 +17,37 @@ def view_home():
 def homepage():
    return render_template("homepage.html")
 
+@app.route('/register')
+def register():
+
+    # email = request.form.get('email')
+    # print(email)
+    # password = request.form.get('password')
+    # print(password)
+    # name = request.form.get('name')
+    # print(name)
+    # user = crud.get_create_user(email)
+    
+    # if user != None and password == user.password:
+    #     session["user_id"] = user.user_id
+    #     return redirect("/dashboard")
+    # else:
+    #     return redirect("/register")
+
+   return render_template("register.html")   
+
 @app.route("/journal")
-def view_first_page():
+def view_journal():
     return render_template("journal.html", title="Journal")
 
-@app.route("/dashboard/")
-def view_second_page():
-    return render_template("dashboard.html", title="Dashboard")
+
+
+
+@app.route("/dashboard/<string:email>")
+def view_second_page(email):
+    # user_name = User.query.filter_by(email=email).first
+    # name = request.args.get("name")
+    return render_template("dashboard.html", title="Dashboard",)
 
 
 @app.route('/login', methods=['GET'])
@@ -47,11 +71,27 @@ def login_post():
     else:
         return redirect("/login")
 
-@app.route('/dashboard/<name>')
-def profile(name):
-    return f'{name}\'s profile'
+# @app.route('/register', methods=['GET'])
+# def login_page(): 
+
+#     return render_template('login.html')
 
 
+# @app.route('/register', methods=['POST'])
+# def login_post():
+
+#     email = request.form.get('email')
+#     print(email)
+#     password = request.form.get('password')
+#     print(password)
+
+#     user = crud.create_user(email)
+    
+#     if user != None and password == user.password:
+#         session["user_id"] = user.user_id
+#         return redirect("/dashboard")
+#     else:
+#         return redirect("/login")        
 
 
 
