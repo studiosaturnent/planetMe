@@ -1,23 +1,30 @@
-<!DOCTYPE HTML>
-<head>
-    <body>
+{% extends 'base.html' %}
+
+
+{% block body %}
         <h1>
             New Entry
         </h1>
         <p>
-            <table>
-                <tr>
-                    Journal 1
-                </tr>
-                <tr>
-                    Journal 2
-                </tr>
-            </table>
+            <form method = "POST" action="/new_entry">
 
+                <label for="fname">date:</label><br>
+                <input type="text" id="date" name="date" value="mm/dd/yy"><br>
+                <label for="lname">time:</label><br>
+                <input type="text" id="time" name="time" value="00:00"><br>
+                <label for="lname">mood:</label><br>
+                <input type="text" id="mood" name="mood" value="happy? sad?"><br>
+                <label for="lname">Last name:</label><br>
+                <input type="text" id="body" name="body" value="enter your thoughts..."><br><br>
+                <button type="submit">Add Entry</button>
+
+              </form> 
+            
+              
+          
         </p>
-    </body>
-</head>
 
+        {% endblock %}
 
 
 

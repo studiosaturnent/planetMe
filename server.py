@@ -17,9 +17,73 @@ def view_home():
 def homepage():
    return render_template("homepage.html")
 
+
+@app.route("/journal", methods=['GET'])
+def view_journal():
+#displaying whole journal table for user 
+    user_id = session.get("user_id")
+    user = crud.get_user(user_id)
+
+    return render_template("journal.html", title="Journal", journals=user.journals)
+
+
+@app.route("/new_entry")
+def new_entry_viewer():
+    return render_template("new_entry.html", title="New Entry")
+
+@app.route("/new_entry", methods =["POST"])
+def new_entry():
+#adding new entry to journal table
+    user_id = session.get("user_id")
+    date = request.form.get('date')
+    time = request.form.get('time')
+    mood = request.form.get('mood')
+    body_data = request.form.get('body')
+    crud.create_journal(user_id=user_id, date=date, time=time, mood=mood , body_data=body_data )
+
+
+    return redirect("/journal")
+
+@app.route("/view_entry/<journal_id>")
+def view_entry(journal_id):
+#viewing a specific entry from table by entry_id
+    journal = crud.get_entry_by_id(journal_id)
+    return render_template("view_entry.html", title="View Entry", journal=journal)    
+
+
+@app.route("/dashboard/")
+def view_dashboard():
+#view user.name from users table
+    user_id = session.get("user_id")
+    user = crud.get_user(user_id)
+
+    return render_template("dashboard.html", title="Dashboard", user = user)
+
+
+@app.route('/login', methods=['GET'])
+def login_page(): 
+#return login template page
+    return render_template('login.html')
+
+
+@app.route('/login', methods=['POST'])
+def login_post():
+#log user in from users table data
+    email = request.form.get('email')
+    print(email)
+    password = request.form.get('password')
+    print(password)
+    user = crud.get_user_by_email(email)
+    
+    if user != None and password == user.password:
+        session["user_id"] = user.user_id
+        return redirect("/dashboard")
+    else:
+        return redirect("/login")
+
 @app.route('/register')
 def register():
-
+#creating user to update users table
     # email = request.form.get('email')
     # print(email)
     # password = request.form.get('password')
@@ -35,63 +99,6 @@ def register():
     #     return redirect("/register")
 
    return render_template("register.html")   
-
-@app.route("/journal")
-def view_journal():
-    return render_template("journal.html", title="Journal")
-
-
-
-
-@app.route("/dashboard/<string:email>")
-def view_second_page(email):
-    # user_name = User.query.filter_by(email=email).first
-    # name = request.args.get("name")
-    return render_template("dashboard.html", title="Dashboard",)
-
-
-@app.route('/login', methods=['GET'])
-def login_page(): 
-
-    return render_template('login.html')
-
-
-@app.route('/login', methods=['POST'])
-def login_post():
-
-    email = request.form.get('email')
-    print(email)
-    password = request.form.get('password')
-    print(password)
-    user = crud.get_user_by_email(email)
-    
-    if user != None and password == user.password:
-        session["user_id"] = user.user_id
-        return redirect("/dashboard")
-    else:
-        return redirect("/login")
-
-# @app.route('/register', methods=['GET'])
-# def login_page(): 
-
-#     return render_template('login.html')
-
-
-# @app.route('/register', methods=['POST'])
-# def login_post():
-
-#     email = request.form.get('email')
-#     print(email)
-#     password = request.form.get('password')
-#     print(password)
-
-#     user = crud.create_user(email)
-    
-#     if user != None and password == user.password:
-#         session["user_id"] = user.user_id
-#         return redirect("/dashboard")
-#     else:
-#         return redirect("/login")        
 
 
 

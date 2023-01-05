@@ -8,52 +8,38 @@
         <div class = "jumbotron p-3">
             <h2> My <b> Journals </b> </h2>
             <table>
+           
+              {% for entry in journals %} 
+              <span>{{entry.date}}</span>
+              <a href="/view_entry/{{entry.journal_id}}"> view entry</a>
+              <span>{{entry.time}}</span>
+              <span>{{entry.mood}}</span>
+            {% endfor %}
+
                 <tr>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <th>Country</th>
+                  <th>DATE</th>
+                  <th>TIME</th>
+                  <th>MOOD</th>
                 </tr>
                 <tr>
-                  <td>Alfreds Futterkiste</td>
-                  <td>Maria Anders</td>
-                  <td>Germany</td>
+                  <td>12/12/23</td>
+                  <td>3:33 PM</td>
+                  <td>Grateul</td>
                 </tr>
                 <tr>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
+                  <td>12/24/23</td>
+                  <td>5:43 AM</td>
+                  <td>Maybe</td>
                 </tr>
               </table> 
+              <br>
+              <p>
+                Click here to add en entry:
+                <form action="/new_entry">
+                    <button type="submit">Add</button>
+                 </form>
+            </p>
 
               {% endblock %}
 
-              {% block content %}
-              <div class = "row">
-                <div class = "jumbotron p-3">
-                    <h2> My <b> Journals </b> </h2>
-                    <table>
-                        <tr>
-                          <th>Company</th>
-                          <th>Contact</th>
-                          <th>Country</th>
-                        </tr>
-                        <tr>
-                          <td>Alfreds Futterkiste</td>
-                          <td>Maria Anders</td>
-                          <td>Germany</td>
-                        </tr>
-                        <tr>
-                          <td> </td>
-                          <td> /td>
-                          <td> </td>
-                        </tr>
-                      </table>
-
-              {% endblock content %}
-
-
-
-
-
-
-
+             

@@ -18,7 +18,7 @@ class User(db.Model):
     name = db.Column(db.String, nullable=False)
 
 
-   # journals = db.relationship("Journal", back_populates="user")
+    journals = db.relationship("Journal", back_populates="user")
 
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email}>"
@@ -27,32 +27,22 @@ class User(db.Model):
 class Journal(db.Model):
     """A journal."""
 
-    __tablename__ = "journals"
+    __tablename__ = "journal"
 
     journal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable=False)
     date = db.Column(db.DateTime)
     time = db.Column(db.Time)
     mood = db.Column(db.String)
     body_data = db.Column(db.String)
 
-    def __repr__(self):
-        return f"<Journals journal_id={self.journal_id} date={self.date}>"
+    user = db.relationship("User", back_populates="journals")
 
-
-class Entry(db.Model):
-    """A journal entry."""
-
-    __tablename__ = "entries"
-
-    journal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    entry_id = db.Column(db.Integer)
-    date = db.Column(db.DateTime)
-    time = db.Column(db.Time)
-    mood = db.Column(db.String)
-    body_data = db.Column(db.String)
 
     def __repr__(self):
-        return f"<Entry entry_id={self.entry_id}>"
+        return f"<Journal journal_id={self.journal_id} date={self.date} time={self.time} mood={self.mood} body_data={self.body_data}>"
+
+
 
 
 def connect_to_db(app, database_name="planetMe"):

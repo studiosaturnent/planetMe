@@ -1,6 +1,6 @@
 """CRUD operations."""
 
-from model import db, User, Journal, Entry, connect_to_db
+from model import db, User, Journal, connect_to_db
 
 
 def create_user(email, password, name):
@@ -30,22 +30,25 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
 
 
-def create_journal(date, time, mood , body_data ):
+def create_journal(user_id, date, time, mood , body_data ):
     """Create and return a new Journal object."""
-
-    journal = Journal(
+    
+    entry = Journal(
+        user_id = user_id,
         date=date,
         time=time,
         mood=mood,
-        body_data=body_data,
+        body_data=body_data
     )
+    db.session.add(entry)
+    db.session.commit()
 
-    return journal
+    return entry
 
-def get_name(name):
+def get_user(user_id):
     """Find and display a user's name."""
 
-    return User.query.get(name=name)
+    return User.query.get(user_id)
 
 
 def get_journal():
@@ -60,12 +63,6 @@ def get_entry_by_id(journal_id):
     return Journal.query.get(journal_id)
 
 
-def create_journal(user, journal):
-    """Create and return a new entry."""
-
-    entry = Entry(user=user, journal=journal)
-
-    return entry
 
 
 

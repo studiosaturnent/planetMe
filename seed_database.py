@@ -15,6 +15,6 @@ os.system("createdb planetMe")
 model.connect_to_db(server.app)
 model.db.create_all()
 
-crud.create_user("simone@gmail.com","password","simone")
-crud.create_journal("1/3/2023","10:45"," ","I am feeling good today")
+mj = crud.create_user("michael_jackson@gmail.com","heehee87","Michael")
+crud.create_journal(mj.user_id,"1/3/2023","10:45","Happy","I am feeling good today")
 
