@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session, flash
 from flask import url_for
 from flask_sqlalchemy import SQLAlchemy
 import crud
@@ -79,27 +79,39 @@ def login_post():
         session["user_id"] = user.user_id
         return redirect("/dashboard")
     else:
+        flash("Invalid Credentials")
         return redirect("/login")
 
-@app.route('/register')
-def register():
-#creating user to update users table
-    # email = request.form.get('email')
-    # print(email)
-    # password = request.form.get('password')
-    # print(password)
-    # name = request.form.get('name')
-    # print(name)
-    # user = crud.get_create_user(email)
-    
-    # if user != None and password == user.password:
-    #     session["user_id"] = user.user_id
-    #     return redirect("/dashboard")
-    # else:
-    #     return redirect("/register")
+@app.route('/logout', methods=['GET'])
+def log_out(): 
+#return login template page
+    return render_template('login.html')        
+
+@app.route('/register',methods=['GET'])
+def register_page():
+#creating register page
 
    return render_template("register.html")   
 
+@app.route('/register',methods=['POST'])
+def register_crud():
+#creating register page
+    email = request.form.get('email')
+    print(email)
+    password = request.form.get('password')
+    print(password)
+    name = request.form.get('name')
+    print(name)
+    user = crud.get_user_by_email(email)
+    
+    if user:
+      flash("User Already exists")
+    else:
+        user = crud.create_user(email,password,name)
+        db.session.add(user)
+        db.session.commit() 
+    
+    return redirect("/dashboard")
 
 
 if __name__ == "__main__":

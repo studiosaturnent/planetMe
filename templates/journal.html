@@ -3,40 +3,44 @@
 {% block title %} MY JOURNALS {% endblock %}
 
 {% block body %}
+<style>
+  .row {
+    margin: 8px 16px;
+    background-color: black;
+    padding: 12px 24px;
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+</style>
 <div class = "container">
     <div class = "row">
         <div class = "jumbotron p-3">
             <h2> My <b> Journals </b> </h2>
             <table>
-           
+              <tr>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>MOOD</th>
+                <th>ENTRY</th>
+              </tr>
               {% for entry in journals %} 
-              <span>{{entry.date}}</span>
-              <a href="/view_entry/{{entry.journal_id}}"> view entry</a>
-              <span>{{entry.time}}</span>
-              <span>{{entry.mood}}</span>
+
+              <tr>
+              <td>{{entry.date}}</td>
+              <td>{{entry.time}}</td>
+              <td>{{entry.mood}}</td>
+              <td>{{entry.body_data}}</td>
+
+              <a href="/view_entry/{{entry.journal_id}}"> view </a>
+              </tr>
             {% endfor %}
 
-                <tr>
-                  <th>DATE</th>
-                  <th>TIME</th>
-                  <th>MOOD</th>
-                </tr>
-                <tr>
-                  <td>12/12/23</td>
-                  <td>3:33 PM</td>
-                  <td>Grateul</td>
-                </tr>
-                <tr>
-                  <td>12/24/23</td>
-                  <td>5:43 AM</td>
-                  <td>Maybe</td>
-                </tr>
               </table> 
               <br>
               <p>
                 Click here to add en entry:
                 <form action="/new_entry">
-                    <button type="submit">Add</button>
+                     <button type="submit">Add</button>
                  </form>
             </p>
 
