@@ -39,13 +39,13 @@
 
 ###### COMPLETION CHECKLIST
 - A SQL database with at least one table ✔️
-- One SQLAlchemy class used to query the database 
+- One SQLAlchemy class used to query the database ✔️
 - A Flask server ✔️
 - 1-2 Jinja templates that use template inheritance ✔️
 - One CSS file ✔️
-- Bootstrap counts as one CSS file 
+- Bootstrap counts as one CSS file ✔️
 - One feature that uses JavaScript to manipulate the DOM
-- This includes JavaScript frontend libraries, frameworks, and/or code that you write
+this includes JavaScript frontend libraries, frameworks, and/or code that you write
 - One AJAX request
 
 ---------------------------------------

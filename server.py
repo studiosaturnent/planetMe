@@ -113,6 +113,36 @@ def register_crud():
     
     return redirect("/dashboard")
 
+# function showFortune() {
+#   fetch('/fortune')
+#     .then((response) => response.text())
+#     .then((fortune) => {
+#       document.querySelector('#fortune-text').innerHTML = fortune;
+#     });
+
+# function changeColor() {
+#   const colorChangeEls = document.querySelectorAll('.color-change');
+
+#   for (const el of colorChangeEls) {
+#     el.classList.add('red');
+#   }
+# }    
+# }
+
+# document.querySelector('#get-fortune-button').addEventListener('click', showFortune);
+
+# // PART 2: SHOW WEATHER
+
+# function showWeather(evt) {
+#   evt.preventDefault();
+#   const zipcode = document.querySelector('#zipcode-field').value;
+#   const url = `/weather?zipcode=${zipcode}`;
+#   fetch(url)
+#     .then((response) => response.json())
+#     .then((jsonData) => {
+#       document.querySelector('#weather-info').innerText = jsonData.forecast;
+#     });
+# }
 
 if __name__ == "__main__":
     from model import connect_to_db
