@@ -1,3 +1,26 @@
+## Sprint 2: Part 2 -- Project Update
+
+### Features I have completed for my project:
+- Users can login to dashboard screen ✔️
+- Users can view a list of their journal entries ✔️
+- Users can see their name displayed in dashboard ✔️
+- Users can add new journal entries with date,time, mood, and journal body ✔️
+
+### Technologies I used (including Python and JS libraries, APIs, etc.):
+- Flask/Jinja
+- Python
+- Anime.JS
+- SQLAlchemy/PostgresSQL
+
+### My general work plan/estimate for styling:
+- Clean up journal view table format
+- Add animations for button click events 
+- DOM color point for add confirmation of adding note/Event box
+- 3 color unit scheme 
+- Homepage elements (planetary/astrology/earthy + purple/blue hue color tone)
+- Logo for planetMe
+
+
 ## Sprint 2: Part 1 -- Project Update
 
 # I have completed my MVP (Yes/No):
