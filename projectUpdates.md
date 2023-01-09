@@ -16,8 +16,8 @@
 - Clean up journal view table format
 - Add animations for button click events 
 - DOM color point for add confirmation of adding note/Event box
-- 3 color unit scheme 
-- Homepage elements (planetary/astrology/earthy + purple/blue hue color tone)
+- 3-5 color unit scheme (purple/blue hue color tone)
+- Homepage elements (planetary/astrology/earthy)
 - Logo for planetMe
 
 
