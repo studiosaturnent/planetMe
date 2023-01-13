@@ -4,7 +4,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+static/images.css
 # C extensions
 *.so
 
