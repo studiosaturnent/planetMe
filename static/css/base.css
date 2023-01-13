@@ -1,0 +1,117 @@
+body {
+    font-family: Outfit ;
+    background-color: black;
+    padding: 60px;
+
+}
+.container{
+  padding: 10px;
+}
+.navbarNavAltMarkup{
+  color: black;
+}  
+
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(172, 66, 66, 0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.navbar-brand{
+  font-family: Rowdies;
+  letter-spacing: 5px;
+}
+.welcome{
+  display: flex;
+  color: blanchedalmond;
+  flex-direction: row;
+  justify-content: center;
+  row-gap: 10px;
+  column-gap: 20px;
+  row-gap: 20px;
+
+}
+
+.new-entry-button{
+  color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+
+}
+.module-border-wrap {
+  max-width: 250px;
+  padding: 1rem;
+  position: relative;
+  background: linear-gradient(to right, rgb(172, 153, 207), rgb(247, 180, 79));
+  padding: 3px;
+}
+
+.background-video video {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  #left-col {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 25%;
+    height: 100%;
+    background-image: url("Nebula - 24623.mp4.jpg");
+  }
+
+.quote-box{
+  color: rgb(138, 125, 107);
+  text-shadow: 2px 2px 0px #cdd1b9;
+  font-style: italic;
+  opacity: 0.5;
+  border-radius: 20px;
+  filter: drop-shadowdrop-shadow(5px 5px 25px black);
+  padding: 20px;
+  text-align: center;
+}
+  
+.table{
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.table-responsive{
+  display: flex;
+  border-radius: 20px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+  border-width: 10px;
+  border-color: black;
+	filter: drop-shadow(5px 5px 25px rgb(192, 195, 166));
+}
+
+.new-entry-button{
+  text-align: left;
+}
+
+  .invalid-login-message{
+    color: rgb(181, 176, 165);
+
+  }
+
+
+
+
+.entry-form {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: beige;
+}

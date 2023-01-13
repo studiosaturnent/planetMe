@@ -2,28 +2,47 @@
 
 
 {% block body %}
+<div class="jumbotron">
+
     <div>
         <h1>
             enter your thoughts below ...
         </h1>
+
+        <div class="entry-form" id="">
         <p>
             <form method = "POST" action="/new_entry">
 
                 <label for="fname">date:</label><br>
-                <input type="text" id="date" name="date" value="mm/dd/yy"><br>
+                <input type="text" id="date" name="date" value="date"><br>
                 <label for="lname">time:</label><br>
                 <input type="text" id="time" name="time" value="00:00"><br>
                 <label for="lname">mood:</label><br>
                 <input type="text" id="mood" name="mood" value="happy? sad?"><br>
                 <label for="lname">Last name:</label><br>
-                <input type="text" id="body" name="body" value="enter your thoughts..."><br><br>
-                <button type="submit">Add Entry</button>
+                
+                <div class="row">
+                    <div class="col-6">
+                      <div class="h-100">
+                        <input
+                          type="textarea"
+                          class="form-control"
+                          name="body"
+                          id="body"
+                          rows="3"
+                          placeholder="enter your thoughts..."
+                        >
+                        </textarea>
+                        <br>
+                        <button type="submit">Add Entry</button>
 
+                      </div>
               </form> 
-            
+            </div> 
               
           
         </p>
+    </div>
     </div>
         {% endblock %}
 

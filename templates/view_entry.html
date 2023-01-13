@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>
+
+<div class="jumbotron">
+
+<h1>Entry Date:<br>
     {{journal.date}}
 </h1>
-<p>
-    {{journal.body_data}}
-</p>
-<div class = "view_entry">
-    <p>
-        <table>
-            <tr>
-            </tr>    
-        </table>    
+</div>
 
-    </p>
+<div class="jumbotron">
+    <div class = "view_entry">
+        <p>
+            <table class="table table-dark">
+                <tr>
+                    {{journal.body_data}}
+                </tr>    
+            </table>    
+
+        </p>
+</div>
 </div>
 {% endblock %}

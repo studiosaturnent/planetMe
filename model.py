@@ -31,7 +31,7 @@ class Journal(db.Model):
 
     journal_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable=False)
-    date = db.Column(db.DateTime)
+    date = db.Column(db.Date)
     time = db.Column(db.Time)
     mood = db.Column(db.String)
     body_data = db.Column(db.String)

@@ -13,7 +13,7 @@
 - SQLAlchemy/PostgresSQL
 
 ### My general work plan/estimate for styling:
-- Clean up journal view table format
+- Clean up journal view table format and organizing visually UI/UX
 - Add animations for button click events 
 - DOM color point for add confirmation of adding note/Event box
 - 3-5 color unit scheme (purple/blue hue color tone)
@@ -119,5 +119,5 @@ this includes JavaScript frontend libraries, frameworks, and/or code that you wr
 - One CSS file 
 - Bootstrap counts as one CSS file 
 - One feature that uses JavaScript to manipulate the DOM
-- This includes JavaScript frontend libraries, frameworks, and/or code that you write
+  - This includes JavaScript frontend libraries, frameworks, and/or code that you write
 - One AJAX request

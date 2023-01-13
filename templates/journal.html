@@ -1,24 +1,49 @@
 {% extends 'base.html' %}
 
 {% block title %} 
-    MY JOURNALS 
+{{ user.name }}'s Journal -
 {% endblock %}
 
 {% block body %}
-<style>
-  .row {
-    margin: 8px 16px;
-    background-color: black;
-    padding: 12px 24px;
-    border: 1px solid black;
-    border-radius: 4px;
-  }
-</style>
-<div class = "container">
+
+
+<div class="table-responsive">
+<table class="table table-dark table-hover">
+  <caption> Entry Count: {{journals|length}}
+  </caption>
+  <thead>
+    <tr class="bg-info">
+      <th scope="col">DATE</th>
+      <th scope="col">TIME</th>
+      <th scope="col">MOOD</th>
+      <th scope="col">ENTRY</th>
+    </tr>
+    </thead>
+  <tbody>
+      <th scope="row">
+      {% for entry in journals %} 
+
+      <tr>
+      <td>{{entry.date}}</td>
+      <td>{{entry.time}}</td>
+      <td>{{entry.mood}}</td>
+      <td style="white-space: nowrap;text-overflow: ellipsis; width: 400px;display: block;overflow: hidden"> <a href="/view_entry/{{entry.journal_id}}">{{entry.body_data}} </a></td>
+      </tr>
+    
+    {% endfor %}
+</tbody>
+    
+</table>
+</div>
+
+
+
+
+<!-- <div class = "journal-entries">
     <div class = "row">
-        <div class = "jumbotron p-3">
-            <h2> My <b> Journals </b> </h2>
-            <table>
+        <div class = "jumbotron p-4">
+            <h2>{{ user.name }}'s <b> Journal </b> </h2>
+            <table class="table table-dark" border="1" style="width: 100%;">
               <tr>
                 <th>DATE</th>
                 <th>TIME</th>
@@ -28,23 +53,26 @@
               {% for entry in journals %} 
 
               <tr>
-              <td>{{entry.date}}</td>
+              <td>{{entry.date}}&nbsp;&nbsp;</td>
               <td>{{entry.time}}</td>
               <td>{{entry.mood}}</td>
-              <td>{{entry.body_data}}</td>
+              <td style="white-space: nowrap;text-overflow: ellipsis; width: 300px;display: block;overflow: hidden"> <a href="/view_entry/{{entry.journal_id}}">{{entry.body_data}} </a></td>
 
-              <a href="/view_entry/{{entry.journal_id}}"> view </a>
+              <td><td>
               </tr>
-            {% endfor %}
+            {% endfor %} -->
 
               </table> 
-              <br>
-              <p>
-                Click here to add en entry:
-                <form action="/new_entry">
-                     <button type="submit">Add</button>
-                 </form>
-            </p>
+              <div class="new-entry-button">
+                <br>
+                <p>
+                  Click Here To Add a New Entry:
+                  <form action="/new_entry">
+                      <button type="submit" class="btn btn-info btn-lg">NEW ENTRY</button>
+                  </form>
+                </p>
+            </div>
+
 
               {% endblock %}
 

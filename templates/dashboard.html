@@ -1,28 +1,40 @@
 {% extends 'base.html' %}
 
+{% block header %}
+
+
+{% endblock %}
+
+{% block title %} 
+{{ user.name }}'s Dashboard -
+{% endblock %}
 
 {% block body %}
+<div class="jumbotron">
+<div class="container">
+    <div class="greeting">
+        <h1>Hi {{ user.name }}!<br> Today's date is </h1>
+       
+        <div id="current_date">            
+            <script>
+            document.getElementById("current_date").innerHTML = Date();
+            </script>
+        </div>  
+  </div>    
 
-    <div>
-        <h1>Hello, World!</h1>
-        <p>Hi {{ user.name }}! I today is DDMMYYYY!</p>
-    </div>    
-
-    <div>
-        <h5>
-            quote viewer
-            
-        </h5>
-    </div>
+    <div class="" id="greeting">
         <h1>
             My Journal
         </h1>
         <p>
-            Click here for journal:
+        
             <form action="/journal">
-                <button type="submit">Journal</button>
+                <button type="submit" class="btn btn-info btn-lg">Journal</button>
              </form>
         </p>
+    </div>
+</div>       
+          
 
 {% endblock %}
 

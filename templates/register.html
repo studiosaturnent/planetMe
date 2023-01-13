@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="container mt-4 ">
-    <form method="POST" action="/register_crud"> 
+
+  <div class="container mt-4 ">
+    <div class="jumbotron">
+
+    <form method="POST" action="/register"> 
         <h2 align="center"></h2>
             <h4> Please Sign Up Below </h4>
         <div class="form-group">
@@ -20,6 +23,7 @@
         
         <button type="submit" class="btn btn-primary">Sign Up</button>
       </form>
+</div>
 </div>
 
 {% endblock %}
